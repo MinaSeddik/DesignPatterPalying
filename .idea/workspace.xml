@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="09dafd20-4149-4e03-9c06-616f66c8fa30" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="AnnotationType" />
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="26hmqRVFuIHkifhXAAXf2gWwL8W" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="proxy" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Cryptographic" />
+      <recent name="threads" />
+      <recent name="proxy" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mina\IdeaProjects\DesignPatterPalying\src\main\resources" />
+      <recent name="C:\Users\mina\IdeaProjects\DesignPatterPalying\src\main\java" />
+      <recent name="C:\Users\mina\IdeaProjects\DesignPatterPalying\src\main\java\logging" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.CertificateValidation">
+    <configuration name="CertificateValidation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Cryptographic.CertificateValidation" />
+      <module name="DesignPatterPalying" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Cryptographic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Encryption" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Cryptographic.Encryption" />
+      <module name="DesignPatterPalying" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Cryptographic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Encryption2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Cryptographic.Encryption2" />
+      <module name="DesignPatterPalying" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Cryptographic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KeyStoreReader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Cryptographic.KeyStoreReader" />
+      <module name="DesignPatterPalying" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Cryptographic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReadCertificate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Cryptographic.ReadCertificate" />
+      <module name="DesignPatterPalying" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Cryptographic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CertificateValidation" />
+        <item itemvalue="Application.KeyStoreReader" />
+        <item itemvalue="Application.Encryption2" />
+        <item itemvalue="Application.Encryption" />
+        <item itemvalue="Application.ReadCertificate" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="09dafd20-4149-4e03-9c06-616f66c8fa30" name="Default Changelist" comment="" />
+      <created>1647884382949</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1647884382949</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1648948011615">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1648948011615" />
+    <state x="725" y="330" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1656975248568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="725" y="330" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1656975248568" />
+    <state x="765" y="239" key="#com.intellij.ide.util.MemberChooser" timestamp="1651752646018">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1651752646018" />
+    <state x="672" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1650800942580">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="672" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1650800942580" />
+    <state x="690" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1657204532271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1657204532271" />
+    <state x="722" y="392" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1651704428532">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="722" y="392" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1651704428532" />
+    <state width="400" height="466" key="DebuggerActiveHint" timestamp="1651104767778">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="400" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1651104767778" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1653417545138">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1653417545138" />
+    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1652360618110">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1652360618110" />
+    <state width="1877" height="244" key="GridCell.Tab.0.bottom" timestamp="1657223384288">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="244" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1657223384288" />
+    <state width="1877" height="244" key="GridCell.Tab.0.center" timestamp="1657223384288">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="244" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1657223384288" />
+    <state width="1877" height="244" key="GridCell.Tab.0.left" timestamp="1657223384288">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="244" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1657223384288" />
+    <state width="1877" height="244" key="GridCell.Tab.0.right" timestamp="1657223384288">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="244" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1657223384288" />
+    <state width="1877" height="522" key="GridCell.Tab.1.bottom" timestamp="1651879963971">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="522" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1651879963971" />
+    <state width="1877" height="522" key="GridCell.Tab.1.center" timestamp="1651879963970">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="522" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1651879963970" />
+    <state width="1877" height="522" key="GridCell.Tab.1.left" timestamp="1651879963970">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="522" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1651879963970" />
+    <state width="1877" height="522" key="GridCell.Tab.1.right" timestamp="1651879963970">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="522" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1651879963970" />
+    <state x="490" y="178" key="Maven.ArtifactSearchDialog" timestamp="1653134716049">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="490" y="178" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1653134716049" />
+    <state x="783" y="457" key="ReplaceDuplicatesPrompt" timestamp="1651758601369">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="783" y="457" key="ReplaceDuplicatesPrompt/0.0.1920.1040@0.0.1920.1040" timestamp="1651758601369" />
+    <state x="463" y="165" key="SettingsEditor" timestamp="1651704365780">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="463" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1651704365780" />
+    <state x="667" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1657187032286">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1657187032286" />
+    <state x="604" y="138" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1650837819981">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="604" y="138" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1650837819981" />
+    <state x="731" y="240" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1649597856819">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="731" y="240" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1649597856819" />
+    <state x="690" y="282" width="540" height="482" key="extract.method.dialog" timestamp="1651758597429">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="282" width="540" height="482" key="extract.method.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1651758597429" />
+    <state x="342" y="224" key="new project wizard" timestamp="1652360564507">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="224" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1652360564507" />
+    <state x="702" y="145" key="refactoring.ChangeSignatureDialog" timestamp="1650059676819">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="702" y="145" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1650059676819" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1653417450940">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1653417450940" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/qsort/QuickSort.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/qsort/QuickSort.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/qsort/QuickSort.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/qsort/QuickSort.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/mytrees/AVL.java</url>
+          <line>120</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/btree/BTree.java</url>
+          <line>115</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/DesignPatterPalying$SimpleInvocationHandlerTest.ic" NAME="SimpleInvocationHandlerTest Coverage Results" MODIFIED="1649597968425" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>proxy.*</FILTER>
+    </SUITE>
+  </component>
+</project>

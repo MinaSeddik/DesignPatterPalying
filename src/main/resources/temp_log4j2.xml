@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">  <!-- status logger is used internally by log4j2 components -->
+
+
+    <Appenders>
+        <Console name="LogToConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{2}:%L - %msg%n"/>
+        </Console>
+    </Appenders>
+
+    <!-- %d for date -->
+    <!-- %d{yyyy-MM-dd HH:mm:ss.SSS}   re-format the default date -->
+    <!-- [%t]   thread name -->
+    <!-- %-5level   log level -->
+    <!-- %logger{36}   prints packages.class & 36 means the max depth of packages -->
+    <!-- %L  prints line number -->
+    <!-- %msg   prints the logged message -->
+    <!-- %n   prints new line -->
+
+    <!-- Rolling over based on Log File Size-->
+    <RollingFile name="RollingFile" fileName="${log-path}/application.log"
+                 filePattern="${log-path}/application.%d{yyyy-MM-dd}.log.gz">
+        <PatternLayout>
+            <pattern>%d{dd/MMM/yyyy HH:mm:ss,SSS}- %c{1}: %m%n</pattern>
+        </PatternLayout>
+        <Policies>
+            <SizeBasedTriggeringPolicy size="1 KB"/>
+        </Policies>
+        <DefaultRolloverStrategy max="5"/>   <!-- define a rollover strategy that will keep up to 5 files before removing them. -->
+    </RollingFile>
+
+    <!-- Rolling Over Every Hour -->
+    <!-- pattern '{MM-dd-yyyy-HH}' will rollover log file every hour. -->
+    <RollingFile name="RollingFile" fileName="${log-path}/application.log"
+                 filePattern="${log-path}/application.%d{yyyy-MM-dd}.log.gz">
+        <PatternLayout>
+            <pattern>%d{dd/MMM/yyyy HH:mm:ss,SSS}- %c{1}: %m%n</pattern>
+        </PatternLayout>
+        <Policies>
+            <TimeBasedTriggeringPolicy filePattern="${log-path}/application.%d{dd-MMM-hh}.log.gz"/>
+        </Policies>
+        <DefaultRolloverStrategy max="5"/>    <!-- define a rollover strategy that will keep up to 5 files before removing them. -->
+    </RollingFile>
+
+
+    <!-- Rolling Over Every Day -->
+    <RollingFile name="RollingFile" fileName="${log-path}/application.log"
+                 filePattern="${log-path}/application.%d{yyyy-MM-dd}.log.gz">
+        <PatternLayout>
+            <pattern>%d{dd/MMM/yyyy HH:mm:ss,SSS}- %c{1}: %m%n</pattern>
+        </PatternLayout>
+        <Policies>
+            <TimeBasedTriggeringPolicy />
+        </Policies>
+        <DefaultRolloverStrategy max="5"/>  <!-- define a rollover strategy that will keep up to 5 files before removing them. -->
+    </RollingFile>
+
+
+    <!-- Rollover based on Log Size and Date Time -->
+    <!-- the time based rollover strategy using filePattern attribute which include {yyyy-MM-dd} -->
+    <RollingFile name="RollingFile" fileName="${log-path}/application.log"
+                 filePattern="${log-path}/application.%d{yyyy-MM-dd}.log.gz">
+        <PatternLayout>
+            <pattern>%d{dd/MMM/yyyy HH:mm:ss,SSS}- %c{1}: %m%n</pattern>
+        </PatternLayout>
+        <Policies>
+            <OnStartupTriggeringPolicy/>
+            <SizeBasedTriggeringPolicy size="10 MB"/>
+            <TimeBasedTriggeringPolicy/>
+        </Policies>
+        <DefaultRolloverStrategy max="4"/>
+    </RollingFile>
+
+
+    <Loggers>
+        <!-- avoid duplicated logs with additivity=false -->
+        <Logger name="logging" level="debug" additivity="false">
+            <AppenderRef ref="LogToConsole"/>
+        </Logger>
+        <Root level="error">
+            <AppenderRef ref="LogToConsole"/>
+        </Root>
+    </Loggers>
+
+
+</Configuration>

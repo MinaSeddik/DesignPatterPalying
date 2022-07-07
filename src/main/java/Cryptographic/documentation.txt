@@ -1,0 +1,25 @@
+openssl genrsa -des3 -out rootCA.key 2048
+openssl req -key rootCA.key -new -out rootCA.csr
+openssl x509 -signkey rootCA.key -in rootCA.csr -req -days 365 -out rootCA.crt
+
+
+openssl genrsa -des3 -out intermidiateCA.key 2048
+openssl req -key intermidiateCA.key -new -out intermidiateCA.csr
+openssl x509 -signkey rootCA.key -in intermidiateCA.csr -req -days 365 -out intermidiateCA.crt
+
+
+openssl genrsa -des3 -out server.key 2048
+openssl req -key server.key -new -out mina.com.csr
+openssl x509 -signkey intermidiateCA.key -in mina.com.csr -req -days 365 -out server.crt
+
+
+
+
+openssl pkcs12 -export -nokeys -in rootCA.crt -out rootCA_only.p12
+openssl pkcs12 -export -nokeys -in rootCA.crt -in intermidiateCA.crt -out root_and_intermidiate.p12
+
+
+openssl pkcs12 -export -inkey rootCA.key -out root_private_key.p12 -name "root_private"
+openssl pkcs12 -export -inkey rootCA.key -in rootCA.crt -out root_private_key.p12 -name "root_private"
+
+openssl pkcs12 -export -nokeys -in certificate.cer -out pkcs12.pfx
