@@ -7,9 +7,7 @@ import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.*;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class CertificateValidation {
@@ -27,67 +25,51 @@ public class CertificateValidation {
         System.out.println("***  Subject:" + certificateToCheck.getSubjectDN());
         System.out.println("***  Issuer:" + certificateToCheck.getIssuerDN());
 
+
+        InputStream input2 = classLoader.getResourceAsStream("intermidiateCA.crt");
+        X509Certificate intermidiateToCheck2 = (X509Certificate) certificateFactory.generateCertificate(input2);
+        System.out.println("***  Subject:" + intermidiateToCheck2.getSubjectDN());
+        System.out.println("***  Issuer:" + intermidiateToCheck2.getIssuerDN());
+
+//        InputStream input2 = classLoader.getResourceAsStream("g_init1.cer");
+//        X509Certificate intermidiateToCheck2 = (X509Certificate) certificateFactory.generateCertificate(input2);
+//
+//        InputStream input3 = classLoader.getResourceAsStream("g_init2.cer");
+//        X509Certificate intermidiateToCheck3 = (X509Certificate) certificateFactory.generateCertificate(input3);
+
+
         KeyStore trustStore = KeyStore.getInstance("JKS");
         InputStream keyStoreStream = classLoader.getResourceAsStream("rootCA_only.jks");
 //        InputStream keyStoreStream = classLoader.getResourceAsStream("intermidiate_only.jks");
 //        InputStream keyStoreStream = classLoader.getResourceAsStream("root_and_intermidiate.jks");
+//        InputStream keyStoreStream = classLoader.getResourceAsStream("all_chain1.jks");
 
-//        InputStream keyStoreStream = classLoader.getResourceAsStream("google_test.jks");
+//        InputStream keyStoreStream = classLoader.getResourceAsStream("google_root.jks");
         trustStore.load(keyStoreStream, "Mina1234".toCharArray());
 
         System.out.println(trustStore.size());
-//        System.out.println("List of all the alias present");
-//        Enumeration<String> e = trustStore.aliases();
-//        while (e.hasMoreElements()) {
-//            System.out.print(e.nextElement() + "");
-//            System.out.println();
-//        }
-
-//        PKIXParameters params = new PKIXParameters(trustStore);
-//        Set<TrustAnchor> trustAnchors = params.getTrustAnchors();
-//        List<Certificate> certificates = trustAnchors.stream()
-//                .map(TrustAnchor::getTrustedCert)
-//                .collect(Collectors.toList());
-//
-//        System.out.println("trustAnchors size: " + trustAnchors.size());
-//        System.out.println("certificates size: " + certificates.size());
-//
-//        for(Certificate crt : certificates){
-//            X509Certificate current = (X509Certificate) crt;
-//            System.out.println(">>>  Subject:" + current.getSubjectDN());
-//            System.out.println(">>>  Issuer:" + current.getIssuerDN());
-//            System.out.println("+++++++");
-//        }
+        System.out.println("List of all the alias present");
+        Enumeration<String> e = trustStore.aliases();
+        while (e.hasMoreElements()) {
+            System.out.print(e.nextElement() + "");
+            System.out.println();
+        }
 
 
-//        CertificateFactory certificateFactory1 = CertificateFactory.getInstance("X.509");
-//        List<Certificate> certx = trustAnchors.stream()
-//                .map(TrustAnchor::getTrustedCert)
-//                .collect(Collectors.toList());
-//        CertPath certPath = certificateFactory1.generateCertPath(certx);
-
-        X509CertSelector certSelector = new X509CertSelector();
-        certSelector.setCertificate(certificateToCheck);
-
-        CertPathBuilder certPathBuilder = CertPathBuilder.getInstance("PKIX");
-        CertPathParameters certPathParameters = new PKIXBuilderParameters(trustStore, certSelector);
-        CertPathBuilderResult certPathBuilderResult = certPathBuilder.build(certPathParameters);
-        CertPath certPath = certPathBuilderResult.getCertPath();
-
+        List<X509Certificate> chain = Arrays.asList(certificateToCheck, intermidiateToCheck2);
+//        List<X509Certificate> chain = Arrays.asList(certificateToCheck, intermidiateToCheck2, intermidiateToCheck3);
+        CertificateFactory certificateFactory1 = CertificateFactory.getInstance("X.509");
+        CertPath certPath1 = certificateFactory1.generateCertPath(chain);
         CertPathValidator certPathValidator = CertPathValidator.getInstance("PKIX");
-        PKIXParameters validationParameters = new PKIXParameters(trustStore);
-        validationParameters.setRevocationEnabled(false); // if you want to check CRL   <----- check it again
 
 
-//        X509CertSelector keyUsageSelector = new X509CertSelector();
-//        keyUsageSelector.setKeyUsage(new boolean[]{true, false, true}); // to check digitalSignature and keyEncipherment bits
-//        validationParameters.setTargetCertConstraints(keyUsageSelector);
-//
-//
+        PKIXParameters p = new PKIXParameters(trustStore);
+        p.setRevocationEnabled(false);
 
-        PKIXCertPathValidatorResult result = (PKIXCertPathValidatorResult) certPathValidator.validate(certPath, validationParameters);
+        CertPathValidatorResult certPathValidatorResult = certPathValidator.validate(certPath1, p);
 
-        System.out.println(result);
+
+
     }
 
 

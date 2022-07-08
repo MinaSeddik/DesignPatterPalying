@@ -1,17 +1,33 @@
+openssl verify -CAfile <(cat g_root.cer g_init2.cer g_init1.cer) google.cer
+
+
+openssl x509 -in server.crt -noout -text
+-extfile <(printf "subjectAltName=DNS:localhost,DNS:*.localhost\nbasicConstraints=critical,CA:TRUE")
+-addext basicConstraints=critical,CA:TRUE
+
+
 openssl genrsa -des3 -out rootCA.key 2048
 openssl req -key rootCA.key -new -out rootCA.csr
 openssl x509 -signkey rootCA.key -in rootCA.csr -req -days 365 -out rootCA.crt
+openssl x509 -signkey rootCA.key -in rootCA.csr -req -days 365 -extfile <(printf "basicConstraints=critical,CA:TRUE") -out rootCA.crt
+
+openssl verify -verbose -CAfile rootCA.crt rootCA.crt
+
 
 
 openssl genrsa -des3 -out intermidiateCA.key 2048
 openssl req -key intermidiateCA.key -new -out intermidiateCA.csr
-openssl x509 -signkey rootCA.key -in intermidiateCA.csr -req -days 365 -out intermidiateCA.crt
+openssl x509 -req -in intermidiateCA.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out intermidiateCA.crt -days 500 -extfile <(printf "basicConstraints=critical,CA:TRUE")
+-------------------------------------------------------------> XXX      openssl x509 -signkey rootCA.key -in intermidiateCA.csr -req -days 365 -out intermidiateCA.crt
+openssl verify -verbose -CAfile rootCA.crt intermidiateCA.crt
+
 
 
 openssl genrsa -des3 -out server.key 2048
-openssl req -key server.key -new -out mina.com.csr
-openssl x509 -signkey intermidiateCA.key -in mina.com.csr -req -days 365 -out server.crt
-
+openssl req -key server.key -new -out server.csr
+openssl x509 -req -in server.csr -CA intermidiateCA.crt -CAkey intermidiateCA.key -CAcreateserial -out server.crt -days 500
+-------------------------------------------------------------> XXX      openssl x509 -signkey intermidiateCA.key -in server.csr -req -days 365 -out server.crt
+openssl verify -verbose -CAfile intermidiateCA.crt server.crt
 
 
 
@@ -23,3 +39,58 @@ openssl pkcs12 -export -inkey rootCA.key -out root_private_key.p12 -name "root_p
 openssl pkcs12 -export -inkey rootCA.key -in rootCA.crt -out root_private_key.p12 -name "root_private"
 
 openssl pkcs12 -export -nokeys -in certificate.cer -out pkcs12.pfx
+
+
+keytool -keystore rootCA_only.jks -alias rootCA -import -file rootCA.crt
+
+keytool -keystore intermidiate_only.jks -alias intermidiateCA -import -file intermidiateCA.crt
+
+
+keytool -keystore root_and_intermidiate.jks -alias rootCA -import -file rootCA.crt
+keytool -keystore root_and_intermidiate.jks -alias intermidiate.CA -import -file intermidiateCA.crt
+
+
+
+keytool -importcert -keystore google_test.jks -alias rootCA -import -file g_root.cer
+keytool -importcert -keystore google_test.jks -alias inter1 -import -file g_init1.cer
+keytool -importcert -keystore google_test.jks -alias inter2 -import -file g_init2.cer
+
+
+
+keytool -import -trustcacerts -alias rootCA -file g_root.cer -keystore google_test5.jks -storepass Mina1234
+keytool -import -trustcacerts -alias inter1 -file g_init1.cer -keystore google_test5.jks -storepass Mina1234
+keytool -import -trustcacerts -alias inter2 -file g_init2.cer -keystore google_test5.jks -storepass Mina1234
+
+
+keytool -import -trustcacerts -alias myCert -file google.cer -keystore google_test5.jks -storepass Mina1234
+
+
+
+keytool -import -trustcacerts -alias google_chain -file fullchain.pem -keystore google_test3.jks -storepass Mina1234
+
+
+
+
+
+
+keytool -import -trustcacerts -alias rootCA -file rootCA.crt -keystore all_chain.jks -storepass Mina1234
+keytool -import -trustcacerts -alias inter1 -file intermidiateCA.crt -keystore all_chain.jks -storepass Mina1234
+keytool -import -trustcacerts -alias mycertificate -file server.crt -keystore all_chain.jks -storepass Mina1234
+
+
+
+keytool -importcert -trustcacerts -keystore google_root.jks -alias rootCA -import -file g_root.cer -storepass Mina1234
+
+
+
+
+
+
+
+
+
+
+
+
+
+
