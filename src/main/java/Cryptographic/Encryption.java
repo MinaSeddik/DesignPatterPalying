@@ -18,16 +18,16 @@ public class Encryption {
 
         CertificateFactory certFactory= CertificateFactory.getInstance("X.509");
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        InputStream input = classLoader.getResourceAsStream("test.cer");
+        InputStream input = classLoader.getResourceAsStream("mySelfSignedCertificate.crt");
         X509Certificate certificate = (X509Certificate) certFactory.generateCertificate(input);
         PublicKey publicKey = certificate.getPublicKey();
 
-        char[] keystorePassword = "password".toCharArray();
-        char[] keyPassword = "password".toCharArray();
+        char[] keystorePassword = "Mina1234".toCharArray();
+        char[] keyPassword = "Mina1234".toCharArray();
         KeyStore keystore = KeyStore.getInstance("PKCS12");
-        InputStream input2 = classLoader.getResourceAsStream("Baeldung.p12");
+        InputStream input2 = classLoader.getResourceAsStream("myPrivateKeyStore.p12");
         keystore.load(input2, keystorePassword);
-        PrivateKey privateKey = (PrivateKey) keystore.getKey("baeldung", keyPassword);
+        PrivateKey privateKey = (PrivateKey) keystore.getKey("myKey", keyPassword);
 
 
         System.out.println("Default Charset=" + Charset.defaultCharset());

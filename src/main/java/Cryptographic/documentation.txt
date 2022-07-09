@@ -85,8 +85,36 @@ keytool -importcert -trustcacerts -keystore google_root.jks -alias rootCA -impor
 
 
 
+openssl pkcs12 -export -in mySelfSignedCertificate.crt -inkey myPrivateKey.key -out myPrivateKeyStore.p12 -name myKey -noiter -nomaciter
 
 
+openssl smime -verify -CAfile mySelfSignedCertificate.crt -in signedData.p7m -inform DER -out content
+openssl smime -verify -noverify -in signedData.p7m -inform DER -out content
+
+
+Generate self signed certificate
+==================================
+
+-----------------------  extfile --------------------
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = localhost
+-----------------------------------------------------
+
+openssl req -new -newkey rsa:4096 -keyout localhost.key –out localhost.csr
+
+openssl x509 -req -CA rootCA.crt -CAkey rootCA.key -in localhost.csr -out localhost.crt -days 365 -CAcreateserial -extfile localhost.ext
+
+openssl x509 -in localhost.crt -text
+
+Import to the Keystore
+========================
+
+openssl pkcs12 -export -out localhost.p12 -name "localhost" -inkey localhost.key -in localhost.crt
+
+keytool -importkeystore -srckeystore localhost.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS
 
 
 
