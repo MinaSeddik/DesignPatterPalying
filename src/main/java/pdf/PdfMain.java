@@ -1,5 +1,6 @@
 package pdf;
 
+import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Rectangle;
@@ -13,7 +14,6 @@ import java.awt.image.*;
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 // http://www.cognaxon.com/index.php?page=wsqlib_sunjavanotes
 public class PdfMain {
@@ -62,18 +62,13 @@ public class PdfMain {
         }
 
 
-
-
-
-
-
 //        InputStream bitMapImage = Jnbis.wsq()
 //                .decode(IMG)
 //                .toPng()
 //                .asInputStream();
 
 //        BufferedImage originalImage = ImageIO.read(bitMapImage);
-        BufferedImage resizedImage = Scalr.resize(originalImage, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.AUTOMATIC,100, 100);
+        BufferedImage resizedImage = Scalr.resize(originalImage, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.AUTOMATIC, 100, 100);
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         ImageIO.write(resizedImage, "BMP", byteArrayOutputStream);
@@ -94,7 +89,24 @@ public class PdfMain {
         System.out.println(w);
         System.out.println(h);
 
-        img.scaleAbsolute(200,200);   // not tested
+        img.scaleToFit(826, 1100);
+
+        // another way to scale the image
+        //------------------------------------------------------------
+        //if you would have a chapter indentation
+        int indentation = 0;
+
+        Document document = new Document();
+        PdfWriter.getInstance(document, new FileOutputStream("result.pdf"));
+        document.open();
+        float scaler = ((document.getPageSize().getWidth() - document.leftMargin()
+                - document.rightMargin() - indentation) / img.getWidth()) * 100;
+
+        img.scalePercent(scaler);
+        //------------------------------------------------------------
+
+
+        img.scaleAbsolute(200, 200);   // not tested
         img.setAbsolutePosition(x, y);
 
         stamper.getOverContent(1).addImage(img);
@@ -104,13 +116,10 @@ public class PdfMain {
 //        PdfDestination dest = new PdfDestination(PdfDestination.XYZ, 36, 802, 0);
 
 
-
-
         PdfAnnotation link = PdfAnnotation.createLink(stamper.getWriter(),
                 linkLocation, PdfAnnotation.HIGHLIGHT_INVERT,
                 reader.getNumberOfPages(), destination);
         link.setBorder(new PdfBorderArray(0, 0, 0));
-
 
 
         stamper.setFormFlattening(true);
