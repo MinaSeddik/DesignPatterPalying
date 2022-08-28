@@ -1,0 +1,4 @@
+package benchmarck_jmh.jmh_generated;
+public class MyBenchmarkThreadSafeAddtition_jmhType extends MyBenchmarkThreadSafeAddtition_jmhType_B3 {
+}
+

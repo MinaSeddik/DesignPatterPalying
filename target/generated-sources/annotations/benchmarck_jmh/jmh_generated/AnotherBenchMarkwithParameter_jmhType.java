@@ -1,0 +1,4 @@
+package benchmarck_jmh.jmh_generated;
+public class AnotherBenchMarkwithParameter_jmhType extends AnotherBenchMarkwithParameter_jmhType_B3 {
+}
+

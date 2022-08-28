@@ -3,6 +3,7 @@ package pdf;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Random;
@@ -12,11 +13,31 @@ public class PdfMain2 {
 
     public static void main(String[] args) throws IOException, DocumentException {
 
-        String src = "C://Users//mina//Desktop//fd-258-110120.pdf";
+        PdfMain2 pdfMain2 = new PdfMain2();
+        pdfMain2.extracted();
+
+    }
+
+    public boolean extracted() throws IOException, DocumentException {
+        String userHome = System.getProperty("user.home");
+        File desktopDir = new File(userHome, "Desktop");
+        String inputFilename = "fd-258-110120.pdf";
+        File inputPdfFile = new File(desktopDir, inputFilename);
+
+
+        File tempDir = new File(desktopDir, "temp");
+        if (! tempDir.exists()){
+            tempDir.mkdir();
+            // If you require it to make the entire directory path including parents,
+            // use directory.mkdirs(); here instead.
+        }
+
+
+//        String src = "C://Users//mina//Desktop//fd-258-110120.pdf";
 
 //        String src = "C://Users//mina//Desktop//fd-258-x.pdf";
 //        String src = "C://Users//mina//Desktop//fd-258-y.pdf";
-        PdfReader reader = new PdfReader(src);
+        PdfReader reader = new PdfReader(inputPdfFile.getAbsolutePath());
 
 //        PRAcroForm prAcroForm = reader.getAcroForm();
 //        ArrayList<PRAcroForm.FieldInformation> list = prAcroForm.getFields();
@@ -38,9 +59,13 @@ public class PdfMain2 {
 
         Random random = new Random();
 
-        String filename = "fd-258-110120_test" + random.nextInt();
-        String dest = "C://Users//mina//Desktop//" + filename + ".pdf";
-        PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(dest));
+//        String outputFilename = "fd-258-110120_test" + random.nextInt();
+//        String dest = "C://Users//mina//Desktop//" + filename + ".pdf";
+
+        String outputFilename = "fd-258-110120_test" + random.nextInt() + ".pdf";
+        File outputPdfFile = new File(tempDir, outputFilename);
+
+        PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(outputPdfFile.getAbsoluteFile()));
         AcroFields acroFields = stamper.getAcroFields();
 
 
@@ -50,8 +75,11 @@ public class PdfMain2 {
 
 
 //        String imageFile = "C://Users//mina//Desktop//Sample.JPG";
-        String imageFile = "C://Users//mina//Desktop//red.jpg";
+//        String imageFile = "C://Users//mina//Desktop//red.jpg";
 
+        String imgFilename = "red.png";
+        File imgFile = new File(desktopDir, imgFilename);
+        String imageFile = imgFile.getAbsolutePath();
 
         float ROLL_IMAGE_WIDTH = 105f;
         float ROLL_IMAGE_HEIGHT = 95f;
@@ -126,10 +154,11 @@ public class PdfMain2 {
         stamper.close();
         reader.close();
 
+        return true;
     }
 
 
-    private static void addImage(PdfStamper stamper, String imageFile, float xPos, float yPos, float width, float height) throws IOException, DocumentException {
+    private void addImage(PdfStamper stamper, String imageFile, float xPos, float yPos, float width, float height) throws IOException, DocumentException {
 
         Rectangle rect = new Rectangle(0, 0, width, height);
 
@@ -141,7 +170,7 @@ public class PdfMain2 {
         stamper.setFormFlattening(true);
     }
 
-    private static void addText(PdfStamper stamper, String text, float xPos, float yPos, float width, float height) throws DocumentException {
+    private void addText(PdfStamper stamper, String text, float xPos, float yPos, float width, float height) throws DocumentException {
 
         PdfContentByte canvas = stamper.getOverContent(1);
 

@@ -14,17 +14,17 @@ public class ConMain {
         int nCores = Runtime.getRuntime().availableProcessors();
         System.out.println("Number of Processors: " + nCores);
         int numOfThreads = nCores*2;
-        Executor executor = Executors.newFixedThreadPool(numOfThreads);
+        Executor executor = Executors.newFixedThreadPool(2);
 
 
         Producer producer = new Producer(sqlBlockingQueueManager);
         Consumer consumer = new Consumer(sqlBlockingQueueManager);
 
-        for(int i=0;i<nCores;i++){
+        for(int i=0;i<1;i++){
             executor.execute(() -> saveTransactions(consumer));
         }
 
-        for(int i=0;i<nCores;i++){
+        for(int i=0;i<1;i++){
             executor.execute(() -> reportTransactions(producer));
         }
 

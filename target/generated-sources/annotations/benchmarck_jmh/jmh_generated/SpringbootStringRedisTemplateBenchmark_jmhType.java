@@ -1,0 +1,4 @@
+package benchmarck_jmh.jmh_generated;
+public class SpringbootStringRedisTemplateBenchmark_jmhType extends SpringbootStringRedisTemplateBenchmark_jmhType_B3 {
+}
+

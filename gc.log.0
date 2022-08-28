@@ -1,0 +1,10 @@
+[2022-08-08T11:20:39.456+0200] Heap region size: 1M
+[2022-08-08T11:20:39.460+0200] Using G1
+[2022-08-08T11:20:39.460+0200] Heap address: 0x0000000707a00000, size: 3974 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+[2022-08-08T11:20:39.461+0200] Mark closed archive regions in map: [0x00000007bff00000, 0x00000007bff6aff8]
+[2022-08-08T11:20:39.461+0200] Mark open archive regions in map: [0x00000007bfe00000, 0x00000007bfe47ff8]
+[2022-08-08T11:24:24.688+0200] Heap
+[2022-08-08T11:24:24.688+0200]  garbage-first heap   total 258048K, used 13004K [0x0000000707a00000, 0x0000000800000000)
+[2022-08-08T11:24:24.688+0200]   region size 1024K, 14 young (14336K), 0 survivors (0K)
+[2022-08-08T11:24:24.688+0200]  Metaspace       used 1542K, capacity 4652K, committed 4864K, reserved 1056768K
+[2022-08-08T11:24:24.688+0200]   class space    used 116K, capacity 419K, committed 512K, reserved 1048576K
