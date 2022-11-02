@@ -25,12 +25,13 @@ public class ParallelStreamMain {
                 .filter(symbol -> testing(symbol, "From filter four"));
 //                .findFirst();
 
+        intermidiateStream.findFirst();
 
     }
 
     private static boolean testing(String symbol, String source) {
 
-        System.out.println(source + " -> " + symbol);
+        System.out.println(Thread.currentThread().getName() + "  " + source + " -> " + symbol);
         return symbol.charAt(0) != 'A';
     }
 }
