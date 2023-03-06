@@ -135,12 +135,29 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
             <version>2.4.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
             <version>2.4.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-log4j2</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
@@ -330,6 +347,20 @@
             <artifactId>wsq1000</artifactId>
             <version>2.1.1.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.imgscalr</groupId>
+            <artifactId>imgscalr-lib</artifactId>
+            <version>4.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path -->
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+
 
     </dependencies>
 
