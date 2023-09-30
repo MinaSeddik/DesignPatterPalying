@@ -141,6 +141,12 @@
                 </exclusion>
             </exclusions>
             <version>2.4.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -152,6 +158,12 @@
                 </exclusion>
             </exclusions>
             <version>2.4.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
 <!--        <dependency>-->
@@ -159,6 +171,7 @@
 <!--            <artifactId>spring-boot-starter-log4j2</artifactId>-->
 <!--        </dependency>-->
 
+<<<<<<< HEAD
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-log4j2 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -168,6 +181,8 @@
 
 
 
+=======
+>>>>>>> f609db5a1b1048326a95f7b5aebc1c163af74264
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
@@ -357,6 +372,7 @@
             <version>2.1.1.1</version>
         </dependency>
 
+<<<<<<< HEAD
 
 
         <!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->

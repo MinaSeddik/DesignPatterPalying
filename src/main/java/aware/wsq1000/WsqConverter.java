@@ -10,8 +10,11 @@ public class WsqConverter {
 
     public static void main(String[] args) {
 
-        String inputWsq = "/home/mina/1.wsq";
-        String outputBmp = "/home/mina/aware.1.bmp";
+//        String inputWsq = "/home/mina/1.wsq";
+//        String outputBmp = "/home/mina/aware.1.bmp";
+
+        String inputWsq = "C:\\Users\\Administrator\\Desktop\\1.wsq";
+        String outputBmp = "C:\\Users\\Administrator\\Desktop\\aware.1.bmp";
 
         WsqConverter converter = new WsqConverter();
         converter.wsq2Bmp(inputWsq, outputBmp);
@@ -30,7 +33,7 @@ public class WsqConverter {
 
             // AwWsq_SetInputImage - Page 17
             // AWWSQ FORMAT WSQ = ImageFormat.WSQ = 3
-            // AwWsq_ReadInputImage
+            // AwWsq_ReadInputImage - Page 20
             wsq1000.readInputImage(ImageFormat.WSQ, inputWsq);
 
             // AwWsq_GetQualityScore - Page 84
@@ -42,7 +45,10 @@ public class WsqConverter {
             System.out.println("Score: " + score);
             System.out.println("NFIQ Score: " + nfiqScore);
 
+            // AwWsq_SetOutputResolution - Page 53
             wsq1000.setOutputResolution(500d);
+
+            // AwWsq_WriteOutputImage - Page 62
             wsq1000.writeOutputImage(ImageFormat.BMP, outputBmp);
 
             scores = new Pair<>(score, nfiqScore);

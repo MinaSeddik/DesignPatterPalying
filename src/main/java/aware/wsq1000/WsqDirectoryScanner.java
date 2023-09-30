@@ -16,9 +16,23 @@ public class WsqDirectoryScanner {
 
     public static void main(String[] args) throws IOException {
 
+//        List<String> dirs = Arrays.asList(
+//                "C:\\Users\\Administrator\\Desktop\\ARSENEAULT_JENNIFER",
+//                "C:\\Users\\Administrator\\Desktop\\Christina_Hindriksen",
+//                "C:\\Users\\Administrator\\Desktop\\MURPHU_THERESA",
+//                "C:\\Users\\Administrator\\Desktop\\VELIZ_NELVI",
+//                "C:\\Users\\Administrator\\Desktop\\TATRO_PAUL_ARTHUR",
+//                "C:\\Users\\Administrator\\Desktop\\Roxana_Ramirez",
+//                "C:\\Users\\Administrator\\Desktop\\Ngan_Ngo"
+//        );
+
         List<String> dirs = Arrays.asList(
-                "/home/mina",
-                "/home/mina/Desktop"
+                "C:\\Users\\Administrator\\Desktop\\finger-prints\\10336",
+                "C:\\Users\\Administrator\\Desktop\\finger-prints\\10432",
+                "C:\\Users\\Administrator\\Desktop\\finger-prints\\10444",
+                "C:\\Users\\Administrator\\Desktop\\finger-prints\\10526",
+                "C:\\Users\\Administrator\\Desktop\\finger-prints\\11682"
+
         );
 
         dirs.stream().forEach(dir -> {
