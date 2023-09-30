@@ -1,0 +1,102 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <property name = "hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name = "hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name = "hibernate.connection.url">jdbc:mysql://localhost:3306/myapp</property>
+<!--        <property name = "hibernate.connection.url">jdbc:mysql://localhost:3306/myapp?profileSQL=true</property>-->
+        <property name = "hibernate.connection.username">mina</property>
+        <property name = "hibernate.connection.password">#Mina_1234$</property>
+
+        <!--============================================================================-->
+        <!--=============== hbm2ddl.auto Configuration =================================-->
+        <!--============================================================================-->
+        <!--============================================================================-->
+
+<!--        <property name = "hibernate.hbm2ddl.auto">update</property>-->
+
+<!--        validate: validate the schema, makes no changes to the database.-->
+<!--        create-only: database creation will be generated.-->
+<!--        drop: database dropping will be generated.-->
+<!--        update: update the schema.-->
+<!--        create: creates the schema, destroying previous data.-->
+<!--        create-drop: drop the schema when the SessionFactory is closed explicitly, typically when the application is stopped.-->
+<!--        none: does nothing with the schema, makes no changes to the database-->
+
+
+
+        <!-- Connection Pool Size -->
+        <!-- the default Connection pool is not production ready, and you should use it only
+            for testing purposes.-->
+        <property name="hibernate.connection.initial_pool_size">10</property>
+        <property name="hibernate.connection.pool_size">10</property>
+
+<!--============================================================================-->
+<!--=============== Hikari Connection Pool Configuration =======================-->
+<!--============================================================================-->
+<!--============================================================================-->
+<!--        Configure Hikari Connection Pool -->
+        <property name="hibernate.connection.provider_class">org.hibernate.hikaricp.internal.HikariCPConnectionProvider</property>
+        <!-- Maximum waiting time for a connection from the pool -->
+        <property name="hibernate.hikari.connectionTimeout">10000</property>
+
+        <!-- Minimum number of ideal connections in the pool -->
+        <property name="hibernate.hikari.minimumIdle">20</property>
+
+        <!-- Maximum number of actual connection in the pool -->
+        <property name="hibernate.hikari.maximumPoolSize">300</property>
+
+        <!-- Maximum time that a connection is allowed to sit ideal in the pool -->
+        <property name="hibernate.hikari.idleTimeout">200000</property>
+
+
+<!--============================================================================-->
+
+
+        <!-- org.hibernate.HibernateException: No CurrentSessionContext configured! -->
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <!-- Outputs the SQL queries, should be disabled in Production -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="format_sql">true</property>
+
+
+        <!--============================================================================-->
+        <!--=============== Hibernate Level-2 Cache Configuration ======================-->
+        <!--=============== using ehcache   ============================================-->
+        <!--============================================================================-->
+        <!--============================================================================-->
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+
+        <!-- For singleton factory -->
+        <!-- <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</property>
+         -->
+
+        <!-- enable second level cache and query cache -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+
+
+        <!--        <property name="net.sf.ehcache.configurationResourceName">/myehcache.xml</property>-->
+
+        <!--============================================================================-->
+        <property name = "hibernate.jdbc.batch_size">50</property>
+        <!--============================================================================-->
+
+
+        <!--        In case of using Annotation based configuration-->
+        <!-- Mapping with model class containing annotations -->
+<!--        <mapping class="hibernate.Employee1"/>-->
+
+
+<!--        In case of using XML configuration-->
+        <!-- List of XML mapping files -->
+<!--        <mapping resource = "Employee.hbm.xml"/>-->
+
+    </session-factory>
+</hibernate-configuration>
