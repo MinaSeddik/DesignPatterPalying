@@ -1,0 +1,7 @@
+{
+  "type" : "enum",
+//  "namespace":"com.mina.avro",
+  "namespace": "com.example",
+  "name" : "Sex",
+  "symbols" : [ "MALE", "FEMALE", "OTHER" ]
+}
